@@ -1,3 +1,34 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-video-bg",
+      "description": "A scenic view of the hostel exterior with lush greenery.",
+      "imageUrl": "https://images.unsplash.com/photo-1584132905271-512c958d674a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxob3N0ZWwlMjBuYXR1cmV8ZW58MHx8fHwxNzY1NjY3ODgxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "hostel nature"
+    },
+    {
+      "id": "room-mixed-dorm",
+      "description": "Interior of a clean and modern mixed dormitory with bunk beds.",
+      "imageUrl": "https://images.unsplash.com/photo-1701708622502-41632ebe7f87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxob3N0ZWwlMjBkb3JtfGVufDB8fHx8MTc2NTY2Nzg4MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "hostel dorm"
+    },
+    {
+      "id": "room-female-dorm",
+      "description": "Interior of a bright and welcoming female-only dormitory.",
+      "imageUrl": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxob3N0ZWwlMjByb29tfGVufDB8fHx8MTc2NTY2Nzg4MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "hostel room"
+    },
+    {
+      "id": "room-private",
+      "description": "A cozy and private room with a double bed.",
+      "imageUrl": "https://images.unsplash.com/photo-1628870970360-aa3afb4c562d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwcml2YXRlJTIwcm9vbXxlbnwwfHx8fDE3NjU2Njc4ODF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "private room"
+    },
+    {
+      "id": "map-placeholder",
+      "description": "A static map showing a pin for the hostel location.",
+      "imageUrl": "https://images.unsplash.com/photo-1532154187607-d766ed024aac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtYXAlMjBsb2NhdGlvbnxlbnwwfHx8fDE3NjU2Njc4ODF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "map location"
+    }
+  ]
 }
