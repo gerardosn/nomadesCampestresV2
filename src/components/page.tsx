@@ -1,6 +1,7 @@
 import { Header } from "@/components/layout/header";
 import { Hero } from "@/components/hero";
 import { AvailabilitySearch } from "@/components/availability-search";
+import { Facilities } from "@/components/facilities";
 import { RoomList } from "@/components/room-list";
 import { HostelMap } from "@/components/hostel-map";
 import { Footer } from "@/components/layout/footer";
@@ -16,6 +17,7 @@ export default function Home() {
         <div id="rooms">
           <RoomList />
         </div>
+        <Facilities />
         <div id="map">
           <HostelMap />
         </div>

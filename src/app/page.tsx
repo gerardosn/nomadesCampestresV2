@@ -5,6 +5,7 @@ import { RoomList } from "@/components/room-list";
 import { HostelMap } from "@/components/hostel-map";
 import { Footer } from "@/components/layout/footer";
 import { Chatbot } from "@/components/chatbot";
+import { Facilities } from "@/components/facilities";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <div id="rooms">
           <RoomList />
         </div>
+        <Facilities />
         <div id="map">
           <HostelMap />
         </div>
