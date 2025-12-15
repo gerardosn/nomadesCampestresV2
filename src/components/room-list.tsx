@@ -54,7 +54,7 @@ export function RoomList() {
                       <span>{room.bedsAvailable} beds available</span>
                     </div>
                   </div>
-                  <Button className="font-semibold">Reserve Now</Button>
+                  <Button className="font-semibold">Reservar ahora</Button>
                 </CardFooter>
               </Card>
             );

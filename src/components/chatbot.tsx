@@ -94,7 +94,7 @@ export function Chatbot() {
                 </AvatarFallback>
               </Avatar>
               <div>
-                <p className="font-headline">Nómades Bot</p>
+                <p className="font-headline">Preguntá lo que quieras (24/7)</p>
                 <div className="flex items-center gap-1.5">
                   <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse"></div>
                   <p className="text-xs text-muted-foreground">Online</p>

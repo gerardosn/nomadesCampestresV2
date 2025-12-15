@@ -56,7 +56,7 @@ export function Hero() {
           </h1>
 
           <p className="text-xl md:text-2xl text-white/90 font-light mb-3">
-            Dormí bien. Conectá. Reservá en segundos.
+            Dormí bien. Conectá con viajeros. Reservá en segundos.
           </p>
 
           <p className="text-white/70 text-base mb-8 max-w-md mx-auto">
@@ -67,7 +67,7 @@ export function Hero() {
           <div className="flex items-center justify-center gap-4 mb-10 flex-wrap">
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur px-3 py-1.5 rounded-full"><Wifi className="w-4 h-4 text-primary" /><span className="text-white/90 text-xs">Wi-Fi rápido</span></div>
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur px-3 py-1.5 rounded-full"><Lock className="w-4 h-4 text-primary" /><span className="text-white/90 text-xs">Lockers seguros</span></div>
-            <div className="flex items-center gap-2 bg-white/10 backdrop-blur px-3 py-1.5 rounded-full"><span className="text-primary text-xs font-bold">$</span><span className="text-white/90 text-xs">Impuestos incluidos</span></div>
+            <div className="flex items-center gap-2 bg-white/10 backdrop-blur px-3 py-1.5 rounded-full"><span className="text-primary text-xs font-bold">$</span><span className="text-white/90 text-xs">Impuestos incluidos • Sin cargos sorpresa</span></div>
           </div>
 
           {/* CTA Button */}

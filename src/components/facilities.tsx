@@ -17,7 +17,7 @@ const facilities = [
   { icon: Lock, label: 'Lockers seguros', desc: 'En cada habitación' },
   { icon: UtensilsCrossed, label: 'Cocina equipada', desc: 'Disponible 24/7' },
   { icon: Sofa, label: 'Áreas comunes', desc: 'Relax y coworking' },
-  { icon: Plug, label: 'Enchufes', desc: 'En cada cama' },
+  { icon: Plug, label: 'Enchufes individuales', desc: 'En cada cama' },
   { icon: WashingMachine, label: 'Lavandería', desc: 'Autoservicio' },
   { icon: Coffee, label: 'Café y té gratis', desc: 'Todo el día' },
   { icon: Bike, label: 'Alquiler de Bicis', desc: 'Explora la zona' },
