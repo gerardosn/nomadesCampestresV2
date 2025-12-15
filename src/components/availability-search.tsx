@@ -78,7 +78,7 @@ export const AvailabilitySearch = forwardRef<HTMLDivElement, SearchWidgetProps>(
 
             {!isExpanded && (
               <div className="p-2">
-                <Button size="lg" className="w-full h-14 font-semibold text-base" onClick={() => setIsExpanded(true)}>
+                <Button size="lg" className="w-full font-semibold text-base" onClick={() => setIsExpanded(true)}>
                   <Search className="mr-2 h-5 w-5" />
                   Buscar disponibilidad
                 </Button>
@@ -99,6 +99,7 @@ export const AvailabilitySearch = forwardRef<HTMLDivElement, SearchWidgetProps>(
                   onChange={(e) => setDate(e.target.value)}
                   className="w-full h-14 pt-6 pb-2 pl-12 pr-4 rounded-lg border border-input bg-background text-base focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                   required
+                  aria-label="Fecha de llegada"
                 />
               </div>
 
@@ -109,7 +110,7 @@ export const AvailabilitySearch = forwardRef<HTMLDivElement, SearchWidgetProps>(
                     type="button"
                     onClick={() => handleQuickDate(qd.offset)}
                     className={cn(
-                      "px-3 py-1.5 rounded-full text-sm border transition-all",
+                      "px-3 py-1.5 rounded-full text-sm border transition-all h-12",
                       date === formatDate(qd.offset)
                         ? "bg-primary text-primary-foreground border-primary"
                         : "bg-muted border-border text-muted-foreground hover:border-primary hover:text-primary"
@@ -122,13 +123,13 @@ export const AvailabilitySearch = forwardRef<HTMLDivElement, SearchWidgetProps>(
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="relative col-span-1 md:col-span-1">
-                  <label className="absolute left-12 top-2 text-xs font-bold text-muted-foreground">Noches</label>
+                  <label id="nights-label" className="absolute left-12 top-2 text-xs font-bold text-muted-foreground">Noches</label>
                   <div className="flex items-center w-full h-14 rounded-lg border border-input bg-background focus-within:ring-2 focus-within:ring-primary focus-within:border-transparent transition-all">
-                    <button type="button" onClick={() => setNights(Math.max(1, nights - 1))} className="w-12 h-full flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted transition-colors rounded-l-lg" disabled={nights <= 1}>
+                    <button type="button" onClick={() => setNights(Math.max(1, nights - 1))} className="w-12 h-full flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted transition-colors rounded-l-lg" disabled={nights <= 1} aria-label="Reducir número de noches">
                       <Minus className="w-4 h-4" />
                     </button>
-                    <span className="flex-1 text-center font-medium text-base">{nights}</span>
-                    <button type="button" onClick={() => setNights(Math.min(30, nights + 1))} className="w-12 h-full flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted transition-colors rounded-r-lg" disabled={nights >= 30}>
+                    <span className="flex-1 text-center font-medium text-base" aria-labelledby="nights-label">{nights}</span>
+                    <button type="button" onClick={() => setNights(Math.min(30, nights + 1))} className="w-12 h-full flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted transition-colors rounded-r-lg" disabled={nights >= 30} aria-label="Aumentar número de noches">
                       <Plus className="w-4 h-4" />
                     </button>
                   </div>
@@ -144,6 +145,7 @@ export const AvailabilitySearch = forwardRef<HTMLDivElement, SearchWidgetProps>(
                     value={guests}
                     onChange={(e) => setGuests(Number(e.target.value))}
                     className="w-full h-14 pt-6 pb-2 pl-12 pr-4 rounded-lg border border-input bg-background text-base appearance-none focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                    aria-label="Número de huéspedes"
                   >
                     {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
                       <option key={n} value={n}>
@@ -153,7 +155,7 @@ export const AvailabilitySearch = forwardRef<HTMLDivElement, SearchWidgetProps>(
                   </select>
                 </div>
 
-                <Button size="lg" className="w-full h-14 font-semibold text-base col-span-1 md:col-span-1" disabled={isLoading}>
+                <Button size="lg" className="w-full font-semibold text-base col-span-1 md:col-span-1" disabled={isLoading}>
                   {isLoading ? (
                     <>
                       <Loader2 className="mr-2 h-5 w-5 animate-spin" />

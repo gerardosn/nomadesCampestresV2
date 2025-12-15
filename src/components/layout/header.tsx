@@ -1,16 +1,17 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, MessageCircle, MountainSnow } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { MountainSnow } from "lucide-react";
 
 const navItems = [
-  { label: "Inicio", href: "#" },
-  { label: "Reservar", href: "#book" },
-  { label: "Habitaciones", href: "#rooms" },
-  { label: "Ubicación", href: "#map" },
+    { label: "Inicio", href: "#" },
+    { label: "Reservar", href: "#book" },
+    { label: "Habitaciones", href: "#rooms" },
+    { label: "Ubicación", href: "#map" },
 ];
 
 export function Header() {
@@ -51,7 +52,7 @@ export function Header() {
             </span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-2">
+          <nav className="hidden md:flex items-center gap-2" aria-label="Main navigation">
             {navItems.map((item) => (
               <Button
                 key={item.label}
@@ -73,9 +74,11 @@ export function Header() {
               variant="ghost"
               onClick={() => setMenuOpen(!menuOpen)}
               className={cn(!scrolled && "text-white hover:bg-white/10 hover:text-white")}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
             >
-              {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               <span className="sr-only">Toggle menu</span>
+              {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
           </div>
         </div>
@@ -84,10 +87,11 @@ export function Header() {
       {/* Mobile Menu */}
       {menuOpen && (
         <div 
+            id="mobile-menu"
             className="fixed inset-0 top-16 z-20 bg-background/80 backdrop-blur-lg md:hidden"
             onClick={() => setMenuOpen(false)}
         >
-          <nav className="flex flex-col items-start p-4 bg-background shadow-lg">
+          <nav className="flex flex-col items-start p-4 bg-background shadow-lg" aria-label="Mobile navigation">
             {navItems.map((item) => (
               <Button
                 key={item.label}
