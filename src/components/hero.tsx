@@ -1,23 +1,19 @@
-import Image from "next/image";
+"use client";
+
 import { Button } from "@/components/ui/button";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { PlayCircle } from "lucide-react";
 
 export function Hero() {
-  const heroImage = PlaceHolderImages.find(p => p.id === 'hero-video-bg');
-
   return (
     <section className="relative w-full h-[60vh] md:h-[80vh] flex items-center justify-center text-center text-white overflow-hidden">
-      {heroImage && (
-        <Image
-          src={heroImage.imageUrl}
-          alt={heroImage.description}
-          fill
-          className="object-cover"
-          data-ai-hint={heroImage.imageHint}
-          priority
-        />
-      )}
+      <video
+        src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute top-0 left-0 w-full h-full object-cover"
+      />
       <div className="absolute inset-0 bg-black/50" />
       <div className="relative z-10 p-4 flex flex-col items-center">
         <div className="bg-black/30 backdrop-blur-sm p-6 md:p-10 rounded-lg shadow-2xl">
