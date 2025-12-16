@@ -35,6 +35,7 @@ export function Chatbot({ isOpen, onOpenChange }: ChatbotProps) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isPending, startTransition] = useTransition();
+  const [genkitUsageCount, setGenkitUsageCount] = useState(0);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -68,6 +69,21 @@ export function Chatbot({ isOpen, onOpenChange }: ChatbotProps) {
         return;
       }
 
+      const handleGenkitFallback = async (question: string) => {
+        if (genkitUsageCount >= 3) {
+          const limitMessage: Message = {
+            id: (Date.now() + 1).toString(),
+            text: 'He alcanzado mi límite de consultas complejas. Para continuar, puedes hablar con un operador a través de nuestro WhatsApp. Haz clic aquí para chatear.',
+            sender: 'bot',
+            isLink: true
+          };
+          setMessages(prev => [...prev, limitMessage]);
+          return null; // Indicates limit was reached
+        }
+        setGenkitUsageCount(prev => prev + 1);
+        return await answerFAQ({ question });
+      };
+
       let botAnswer = "Lo siento, no he podido encontrar una respuesta. Por favor, intenta reformular tu pregunta.";
 
       try {
@@ -85,8 +101,12 @@ export function Chatbot({ isOpen, onOpenChange }: ChatbotProps) {
           } else {
             // 2. If no match from API, fallback to Genkit
             try {
-              const result = await answerFAQ({ question });
-              botAnswer = result.answer;
+              const result = await handleGenkitFallback(question);
+              if (result) {
+                botAnswer = result.answer;
+              } else {
+                return; // Stop if limit was reached
+              }
             } catch (aiError) {
               console.error("AI Fallback Error:", aiError);
               // Use the default error message if Genkit also fails
@@ -97,8 +117,12 @@ export function Chatbot({ isOpen, onOpenChange }: ChatbotProps) {
         console.error("Chatbot API Error:", error);
         // If the API call fails, try Genkit as a fallback
         try {
-            const result = await answerFAQ({ question });
-            botAnswer = result.answer;
+            const result = await handleGenkitFallback(question);
+            if (result) {
+              botAnswer = result.answer;
+            } else {
+              return; // Stop if limit was reached
+            }
         } catch (aiError) {
             console.error("AI Fallback Error after API failure:", aiError);
         }
