@@ -194,7 +194,7 @@ export function Chatbot() {
         <Button
             size="icon"
             variant="secondary"
-            className="fixed bottom-24 right-6 h-16 w-16 rounded-full shadow-2xl z-40"
+            className="fixed bottom-24 right-6 h-16 w-16 rounded-full shadow-2xl z-40 border border-white"
         >
             <MessageSquare className="h-8 w-8 text-primary" />
         </Button>
