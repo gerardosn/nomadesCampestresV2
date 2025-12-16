@@ -17,11 +17,13 @@ import { cn } from "@/lib/utils";
 import { faqs } from '@/lib/data';
 import { answerFAQ } from '@/ai/flows/ai-chatbot-answers-faqs';
 import { Badge } from './ui/badge';
+import Link from 'next/link';
 
 type Message = {
   id: string;
   text: string;
   sender: 'user' | 'bot';
+  isLink?: boolean;
 };
 
 export function Chatbot() {
@@ -39,15 +41,29 @@ export function Chatbot() {
       }
     }
   }, [messages]);
-
+  
   const handleSend = (question: string) => {
     if (!question.trim()) return;
-
+  
     const userMessage: Message = { id: Date.now().toString(), text: question, sender: 'user' };
     setMessages(prev => [...prev, userMessage]);
     setInput('');
-    
+  
     startTransition(async () => {
+      const lowerCaseQuestion = question.toLowerCase();
+      const operatorKeywords = ['operador', 'humano', 'persona', 'asistente', 'hablar con alguien'];
+  
+      if (operatorKeywords.some(keyword => lowerCaseQuestion.includes(keyword))) {
+        const botMessage: Message = {
+          id: (Date.now() + 1).toString(),
+          text: 'Claro, puedes hablar con un operador a través de nuestro WhatsApp. Haz clic aquí para chatear.',
+          sender: 'bot',
+          isLink: true
+        };
+        setMessages(prev => [...prev, botMessage]);
+        return;
+      }
+
       let botAnswer = "Lo siento, no he podido encontrar una respuesta. Por favor, intenta reformular tu pregunta.";
 
       try {
@@ -105,7 +121,7 @@ export function Chatbot() {
           <Button
             size="icon"
             className="fixed bottom-6 right-6 h-16 w-16 rounded-full shadow-2xl z-40"
-            aria-label="Open Chat"
+            aria-label="Abrir Chat"
           >
             <Bot className="h-8 w-8" />
           </Button>
@@ -131,10 +147,10 @@ export function Chatbot() {
           <ScrollArea className="flex-1" ref={scrollAreaRef}>
             <div className="p-4 space-y-6">
               {messages.length === 0 && (
-                <div className='p-4 rounded-lg bg-secondary'>
+                <div className='p-4 rounded-lg bg-secondary/10'>
                   <div className='flex items-center gap-2 mb-3'>
                     <HelpCircle className='h-5 w-5 text-primary'/>
-                    <h3 className='font-semibold'>Frequently Asked Questions</h3>
+                    <h3 className='font-semibold'>Preguntas Frecuentes</h3>
                   </div>
                   <div className='flex flex-wrap gap-2'>
                     {faqs.slice(0, 4).map(faq => (
@@ -173,7 +189,13 @@ export function Chatbot() {
                         : "bg-muted"
                     )}
                   >
-                    <p className='whitespace-pre-wrap'>{message.text}</p>
+                    {message.isLink ? (
+                      <Link href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="underline text-primary font-semibold">
+                        {message.text}
+                      </Link>
+                    ) : (
+                      <p className='whitespace-pre-wrap'>{message.text}</p>
+                    )}
                   </div>
                 </div>
               ))}
@@ -186,7 +208,7 @@ export function Chatbot() {
                     </Avatar>
                     <div className="bg-muted rounded-lg p-3 flex items-center space-x-2 shadow-sm">
                         <Loader2 className="h-4 w-4 animate-spin"/>
-                        <span className="text-sm text-muted-foreground">Thinking...</span>
+                        <span className="text-sm text-muted-foreground">Pensando...</span>
                     </div>
                 </div>
               )}
@@ -201,27 +223,27 @@ export function Chatbot() {
               <Input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask anything..."
+                placeholder="Hacé tu pregunta..."
                 className="flex-1"
                 autoComplete='off'
                 disabled={isPending}
               />
               <Button type="submit" size="icon" disabled={isPending || !input.trim()}>
                 <Send className="h-4 w-4" />
-                <span className="sr-only">Send</span>
+                <span className="sr-only">Enviar</span>
               </Button>
             </form>
           </div>
         </SheetContent>
       </Sheet>
       
-      <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" aria-label="Contact on WhatsApp">
+      <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
         <Button
             size="icon"
             variant="secondary"
-            className="fixed bottom-24 right-6 h-16 w-16 rounded-full shadow-2xl z-40 border border-white"
+            className="fixed bottom-24 right-6 h-16 w-16 rounded-full shadow-2xl z-40 border border-white bg-[#25D366] hover:bg-[#1DA851]"
         >
-            <MessageSquare className="h-8 w-8 text-primary" />
+            <MessageSquare className="h-8 w-8 text-white" />
         </Button>
       </a>
     </>
