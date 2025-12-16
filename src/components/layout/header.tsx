@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -51,22 +51,28 @@ export function Header() {
               Nómades Campestres
             </span>
           </Link>
-
-          <nav className="hidden md:flex items-center gap-2" aria-label="Main navigation">
-            {navItems.map((item) => (
-              <Button
-                key={item.label}
-                variant="ghost"
-                onClick={() => handleNavClick(item.href)}
-                className={cn(
-                  "font-semibold",
-                  scrolled ? "text-foreground hover:bg-muted" : "text-primary-foreground/90 hover:bg-primary-foreground/10 hover:text-primary-foreground"
-                )}
-              >
-                {item.label}
+          <div className="flex items-center gap-2">
+            <nav className="hidden md:flex items-center gap-2" aria-label="Main navigation">
+              {navItems.map((item) => (
+                <Button
+                  key={item.label}
+                  variant="ghost"
+                  onClick={() => handleNavClick(item.href)}
+                  className={cn(
+                    "font-semibold",
+                    scrolled ? "text-foreground hover:bg-muted" : "text-primary-foreground/90 hover:bg-primary-foreground/10 hover:text-primary-foreground"
+                  )}
+                >
+                  {item.label}
+                </Button>
+              ))}
+            </nav>
+            <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp" className="hidden md:inline-flex">
+              <Button size="icon" variant="ghost" className={cn(scrolled ? 'text-green-600 hover:bg-green-100' : 'text-white hover:bg-white/10')}>
+                <MessageSquare className="h-6 w-6" />
               </Button>
-            ))}
-          </nav>
+            </a>
+          </div>
           
           <div className="md:hidden">
             <Button
@@ -102,6 +108,12 @@ export function Header() {
                 {item.label}
               </Button>
             ))}
+             <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="w-full">
+              <Button variant="ghost" className="w-full justify-start py-4 text-lg text-green-600">
+                <MessageSquare className="mr-2" />
+                WhatsApp
+              </Button>
+            </a>
           </nav>
         </div>
       )}

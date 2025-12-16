@@ -264,16 +264,6 @@ export function Chatbot({ isOpen, onOpenChange }: ChatbotProps) {
           </div>
         </SheetContent>
       </Sheet>
-      
-      <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
-        <Button
-            size="icon"
-            variant="secondary"
-            className="fixed bottom-24 right-6 h-16 w-16 rounded-full shadow-2xl z-40 border border-white bg-[#25D366] hover:bg-[#1DA851]"
-        >
-            <MessageSquare className="h-8 w-8 text-white" />
-        </Button>
-      </a>
     </>
   );
 }
