@@ -45,28 +45,53 @@ export function Chatbot() {
 
     const userMessage: Message = { id: Date.now().toString(), text: question, sender: 'user' };
     setMessages(prev => [...prev, userMessage]);
+    setInput('');
     
     startTransition(async () => {
+      let botAnswer = "Lo siento, no he podido encontrar una respuesta. Por favor, intenta reformular tu pregunta.";
+
       try {
-        const result = await answerFAQ({ question });
-        const botMessage: Message = { id: (Date.now() + 1).toString(), text: result.answer, sender: 'bot' };
-        setMessages(prev => [...prev, botMessage]);
+        // 1. First, try to get an answer from the local FAQ API
+        const apiRes = await fetch('/api/chatbot', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: question }),
+        });
+
+        if (apiRes.ok) {
+          const apiData = await apiRes.json();
+          if (apiData.success && apiData.match) {
+            botAnswer = apiData.answer;
+          } else {
+            // 2. If no match from API, fallback to Genkit
+            try {
+              const result = await answerFAQ({ question });
+              botAnswer = result.answer;
+            } catch (aiError) {
+              console.error("AI Fallback Error:", aiError);
+              // Use the default error message if Genkit also fails
+            }
+          }
+        }
       } catch (error) {
-        console.error("AI Error:", error);
-        const errorMessage: Message = {
-          id: (Date.now() + 1).toString(),
-          text: "Sorry, I'm having trouble connecting. Please try again later.",
-          sender: 'bot',
-        };
-        setMessages(prev => [...prev, errorMessage]);
+        console.error("Chatbot API Error:", error);
+        // If the API call fails, try Genkit as a fallback
+        try {
+            const result = await answerFAQ({ question });
+            botAnswer = result.answer;
+        } catch (aiError) {
+            console.error("AI Fallback Error after API failure:", aiError);
+        }
       }
+
+      const botMessage: Message = { id: (Date.now() + 1).toString(), text: botAnswer, sender: 'bot' };
+      setMessages(prev => [...prev, botMessage]);
     });
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     handleSend(input);
-    setInput('');
   }
 
   const handleFaqClick = (question: string) => {
