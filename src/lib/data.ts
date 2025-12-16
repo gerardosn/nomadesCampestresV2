@@ -29,19 +29,19 @@ export const rooms: Room[] = [
 
 export const faqs: FAQ[] = [
   {
-    question: 'What are the check-in and check-out times?',
-    answer: 'Check-in is from 3:00 PM to 11:00 PM. Check-out is before 11:00 AM.',
+    question: '¿Cuáles son los horarios de check-in y check-out?',
+    answer: 'El horario estándar de check-in es a partir de las 14:00 y el check-out es hasta las 11:00. Si llegás antes, podés dejar tu equipaje en nuestra consigna hasta que la habitación esté lista. En caso de necesitar un late check-out, escribinos por el chat o correo para verificar disponibilidad y posibles cargos adicionales.',
   },
   {
-    question: 'Is breakfast included?',
-    answer: 'Yes, we offer a complimentary continental breakfast every morning from 7:30 AM to 10:00 AM.',
+    question: '¿El precio de la reserva incluye desayuno?',
+    answer: 'Dependiendo de la tarifa seleccionada, el desayuno puede estar o no incluido en el precio final. En la pantalla de reserva verás claramente si tu tarifa incluye desayuno, toallas u otros servicios adicionales. Si no aparece incluido, podés consultarnos por el costo extra o contratarlo directamente en el hostel, sujeto a disponibilidad.',
   },
   {
-    question: 'Do you have lockers?',
-    answer: 'Each dorm bed comes with a personal locker. Please bring your own padlock or purchase one at the reception.',
+    question: '¿Qué tipos de habitaciones ofrecen?',
+    answer: 'En Nomade Hostel ofrecemos habitaciones compartidas (dorms) y habitaciones privadas. Todas las camas incluyen ropa de cama, acceso a locker individual (traé tu candado o consultá por uno en recepción) y acceso a baños compartidos. Las habitaciones privadas cuentan además con toallas incluidas y mayor privacidad.',
   },
   {
-    question: 'How can I get to the hostel from the airport?',
-    answer: 'The easiest way is to take the airport shuttle bus to the city center, and from there we are a 10-minute walk. You can also find directions on our map!',
+    question: '¿Cómo puedo hacer una reserva?',
+    answer: 'Para hacer una reserva en Nomade Hostel podés usar directamente la página de reservas del sitio. Seleccioná tus fechas de entrada y salida, el tipo de habitación (compartida o privada) y la cantidad de huéspedes. Luego completá tus datos personales y confirmá la reserva con el medio de pago disponible.',
   },
 ];

@@ -203,6 +203,23 @@
         ],
         "category": "checkin",
         "lang": "es"
+      },
+      {
+        "id": "faq-11",
+        "question": "¿Cómo puedo llegar al hostel desde el aeropuerto?",
+        "answer": "La forma más fácil es tomar el autobús shuttle del aeropuerto hasta el centro de la ciudad, y desde allí estamos a 10 minutos a pie. ¡También puedes encontrar indicaciones en nuestro mapa!",
+        "keywords": [
+          "aeropuerto",
+          "cómo llegar",
+          "transporte",
+          "autobús",
+          "shuttle",
+          "direcciones",
+          "mapa",
+          "llegar desde el aeropuerto"
+        ],
+        "category": "ubicacion",
+        "lang": "es"
       }
     ]
   }
