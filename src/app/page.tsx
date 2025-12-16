@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { Header } from "@/components/layout/header";
 import { Hero } from "@/components/hero";
 import { AvailabilitySearch } from "@/components/availability-search";
@@ -8,6 +11,12 @@ import { Chatbot } from "@/components/chatbot";
 import { Facilities } from "@/components/facilities";
 
 export default function Home() {
+  const [isChatbotOpen, setChatbotOpen] = useState(false);
+
+  const handleOpenChatbot = () => {
+    setChatbotOpen(true);
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
@@ -21,9 +30,9 @@ export default function Home() {
         <div id="map">
           <HostelMap />
         </div>
-        <Chatbot />
+        <Chatbot isOpen={isChatbotOpen} onOpenChange={setChatbotOpen} />
       </main>
-      <Footer />
+      <Footer onFaqClick={handleOpenChatbot} />
     </div>
   );
 }

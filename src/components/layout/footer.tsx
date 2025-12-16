@@ -1,7 +1,12 @@
 import { MountainSnow, Twitter, Instagram, Facebook } from "lucide-react";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
-export function Footer() {
+interface FooterProps {
+  onFaqClick: () => void;
+}
+
+export function Footer({ onFaqClick }: FooterProps) {
   return (
     <footer className="bg-secondary text-secondary-foreground">
       <div className="container mx-auto py-12 px-4 md:px-6">
@@ -28,7 +33,7 @@ export function Footer() {
               <h4 className="font-semibold mb-3 font-headline">Conectá</h4>
               <ul className="space-y-2 text-sm">
                 <li><Link href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="hover:underline" prefetch={false}>Contactanos</Link></li>
-                <li><Link href="#" className="hover:underline" prefetch={false}>FAQs</Link></li>
+                <li><button onClick={onFaqClick} className="hover:underline text-left">FAQs</button></li>
               </ul>
             </div>
           </div>

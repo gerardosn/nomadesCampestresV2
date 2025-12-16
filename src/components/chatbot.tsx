@@ -26,8 +26,12 @@ type Message = {
   isLink?: boolean;
 };
 
-export function Chatbot() {
-  const [isOpen, setIsOpen] = useState(false);
+interface ChatbotProps {
+  isOpen: boolean;
+  onOpenChange: (isOpen: boolean) => void;
+}
+
+export function Chatbot({ isOpen, onOpenChange }: ChatbotProps) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isPending, startTransition] = useTransition();
@@ -116,7 +120,7 @@ export function Chatbot() {
 
   return (
     <>
-      <Sheet open={isOpen} onOpenChange={setIsOpen}>
+      <Sheet open={isOpen} onOpenChange={onOpenChange}>
         <SheetTrigger asChild>
           <Button
             size="icon"
@@ -190,9 +194,9 @@ export function Chatbot() {
                     )}
                   >
                     {message.isLink ? (
-                      <Link href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="underline text-primary font-semibold">
+                      <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="underline font-medium">
                         {message.text}
-                      </Link>
+                      </a>
                     ) : (
                       <p className='whitespace-pre-wrap'>{message.text}</p>
                     )}
@@ -249,4 +253,3 @@ export function Chatbot() {
     </>
   );
 }
-
