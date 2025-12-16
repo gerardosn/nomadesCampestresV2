@@ -1,0 +1,208 @@
+{
+    "faqs": [
+      {
+        "id": "faq-01",
+        "question": "¿Cómo puedo hacer una reserva en Nomade Hostel?",
+        "answer": "Para hacer una reserva en Nomade Hostel podés usar directamente la página de reservas del sitio. Seleccioná tus fechas de entrada y salida, el tipo de habitación (compartida o privada) y la cantidad de huéspedes. Luego completá tus datos personales y confirmá la reserva con el medio de pago disponible. Una vez confirmada, te llegará un correo con el resumen de la reserva y el número de confirmación.",
+        "keywords": [
+          "reservar",
+          "reserva online",
+          "hacer reserva",
+          "booking",
+          "disponibilidad",
+          "habitaciones",
+          "habitacion",
+          "fechas",
+          "fecha",
+          "reserva nomade hostel"
+        ],
+        "category": "reservas",
+        "lang": "es"
+      },
+      {
+        "id": "faq-02",
+        "question": "¿Cuáles son los horarios de check-in y check-out?",
+        "answer": "El horario estándar de check-in es a partir de las 14:00 y el check-out es hasta las 11:00. Si llegás antes, podés dejar tu equipaje en nuestra consigna hasta que la habitación esté lista. En caso de necesitar un late check-out, escribinos por el chat o correo para verificar disponibilidad y posibles cargos adicionales.",
+        "keywords": [
+          "check in",
+          "check-in",
+          "check out",
+          "check-out",
+          "horario check in",
+          "horario check out",
+          "hora de entrada",
+          "hora de salida",
+          "late check out",
+          "equipaje",
+          "guardar equipaje"
+        ],
+        "category": "estadía",
+        "lang": "es"
+      },
+      {
+        "id": "faq-03",
+        "question": "¿Qué tipos de habitaciones ofrecen y qué incluyen?",
+        "answer": "En Nomade Hostel ofrecemos habitaciones compartidas (dorms) y habitaciones privadas. Todas las camas incluyen ropa de cama, acceso a locker individual (traé tu candado o consultá por uno en recepción) y acceso a baños compartidos. Las habitaciones privadas cuentan además con toallas incluidas y mayor privacidad. El hostel ofrece espacios comunes como cocina equipada, sala de estar y, según disponibilidad, áreas de coworking.",
+        "keywords": [
+          "habitaciones",
+          "habitacion",
+          "dorm",
+          "dormitorio",
+          "privada",
+          "privadas",
+          "compartida",
+          "compartidas",
+          "comodidades",
+          "servicios habitacion",
+          "locker",
+          "baño compartido",
+          "toallas"
+        ],
+        "category": "habitaciones",
+        "lang": "es"
+      },
+      {
+        "id": "faq-04",
+        "question": "¿El precio de la reserva incluye desayuno u otros servicios?",
+        "answer": "Dependiendo de la tarifa seleccionada, el desayuno puede estar o no incluido en el precio final. En la pantalla de reserva verás claramente si tu tarifa incluye desayuno, toallas u otros servicios adicionales. Si no aparece incluido, podés consultarnos por el costo extra o contratarlo directamente en el hostel, sujeto a disponibilidad.",
+        "keywords": [
+          "precio",
+          "tarifa",
+          "desayuno",
+          "incluye desayuno",
+          "incluye",
+          "servicios",
+          "extras",
+          "toallas",
+          "adicional",
+          "que incluye la reserva"
+        ],
+        "category": "servicios",
+        "lang": "es"
+      },
+      {
+        "id": "faq-05",
+        "question": "¿Puedo modificar o cancelar mi reserva desde la web?",
+        "answer": "Sí, siempre que tu tarifa lo permita. Para modificar o cancelar tu reserva, ingresá con el correo que usaste al reservar y tu número de confirmación, o seguí el enlace que aparece en el email de confirmación. Allí verás las opciones de cambio o cancelación y las condiciones aplicables, como plazos y posibles cargos. Si necesitás ayuda adicional, podés escribirnos por el chat del sitio o por correo.",
+        "keywords": [
+          "modificar reserva",
+          "cambiar reserva",
+          "editar reserva",
+          "cancelar",
+          "cancelación",
+          "anular reserva",
+          "política cancelación",
+          "tarifa flexible",
+          "numero de confirmacion",
+          "email de confirmacion"
+        ],
+        "category": "reservas",
+        "lang": "es"
+      },
+      {
+        "id": "faq-06",
+        "question": "¿Qué medios de pago aceptan y es seguro pagar online?",
+        "answer": "Aceptamos pagos online con tarjeta de crédito y/o débito a través de la pasarela de pago integrada en el sistema. El pago se procesa en un entorno seguro y encriptado. En algunos casos también podés abonar en el hostel en efectivo o con tarjeta física, pero la disponibilidad de esta opción puede variar. Siempre vas a ver el detalle del monto final antes de confirmar el pago.",
+        "keywords": [
+          "pago",
+          "pagos",
+          "tarjeta",
+          "tarjeta de credito",
+          "tarjeta de débito",
+          "debito",
+          "crédito",
+          "mercado pago",
+          "stripe",
+          "pagar online",
+          "es seguro",
+          "efectivo"
+        ],
+        "category": "pagos",
+        "lang": "es"
+      },
+      {
+        "id": "faq-07",
+        "question": "¿El hostel ofrece wifi y espacios para trabajar?",
+        "answer": "Sí, Nomade Hostel está pensado para viajeros y nómades digitales, por lo que contamos con wifi gratuito en todo el establecimiento. Además, ofrecemos áreas comunes donde podés trabajar con tu notebook y, según la configuración del hostel, un espacio de coworking con mayor comodidad. Te recomendamos consultar si necesitás información específica sobre enchufes, sillas ergonómicas u horarios de uso.",
+        "keywords": [
+          "wifi",
+          "internet",
+          "conexión",
+          "trabajar",
+          "coworking",
+          "cowork",
+          "nomada digital",
+          "nómade digital",
+          "espacio de trabajo",
+          "notebook"
+        ],
+        "category": "servicios",
+        "lang": "es"
+      },
+      {
+        "id": "faq-08",
+        "question": "¿Tienen políticas especiales para grupos o estadías largas?",
+        "answer": "Sí, para grupos y estadías largas podemos ofrecer condiciones especiales según la disponibilidad y la temporada. Si tu reserva es para un grupo grande de huéspedes o por varias noches, te pedimos que nos contactes por el formulario de contacto o por correo con los detalles. Nuestro equipo revisará la disponibilidad y te enviará una propuesta personalizada con tarifas y condiciones.",
+        "keywords": [
+          "grupo",
+          "grupos",
+          "reservar grupo",
+          "estadía larga",
+          "larga estadía",
+          "larga duracion",
+          "descuento",
+          "tarifa especial",
+          "noches",
+          "huéspedes",
+          "huespedes"
+        ],
+        "category": "reservas",
+        "lang": "es"
+      },
+      {
+        "id": "faq-09",
+        "question": "¿Cómo puedo comunicarme con el hostel si tengo dudas antes o después de reservar?",
+        "answer": "Podés comunicarte con nosotros a través del chat integrado en la web, del formulario de contacto o del correo electrónico oficial que figura en la sección de contacto. Si lo preferís, también podés escribirnos por redes sociales como Instagram o Facebook para consultas rápidas. Te recomendamos tener a mano tu número de reserva si ya hiciste una, para poder ayudarte más rápido.",
+        "keywords": [
+          "contacto",
+          "contactar",
+          "como hablar",
+          "correo",
+          "email",
+          "mail",
+          "chat",
+          "soporte",
+          "ayuda",
+          "instagram",
+          "facebook",
+          "redes sociales"
+        ],
+        "category": "contacto",
+        "lang": "es"
+      },
+      {
+        "id": "faq-10",
+        "question": "¿Qué debo hacer al llegar al hostel para el check-in?",
+        "answer": "Al llegar a Nomade Hostel, acercate a la recepción y mencioná tu nombre y número de reserva. Nuestro equipo verificará tu reserva en el sistema y te pedirá un documento de identidad válido. En caso de haber un saldo pendiente, podrás abonarlo en el momento según los medios de pago disponibles. Luego te explicaremos las normas básicas de la casa, horarios, uso de espacios comunes y te entregaremos la llave o tarjeta de acceso correspondiente.",
+        "keywords": [
+          "llegar",
+          "al llegar",
+          "recepción",
+          "recepcion",
+          "check in",
+          "check-in",
+          "documento",
+          "dni",
+          "identidad",
+          "saldo pendiente",
+          "pagar en el hostel",
+          "normas",
+          "reglas",
+          "llave",
+          "tarjeta de acceso"
+        ],
+        "category": "checkin",
+        "lang": "es"
+      }
+    ]
+  }
