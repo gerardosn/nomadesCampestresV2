@@ -51,7 +51,7 @@ export function Header() {
               Nómades Campestres
             </span>
           </Link>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-4">
             <nav className="hidden md:flex items-center gap-2" aria-label="Main navigation">
               {navItems.map((item) => (
                 <Button
@@ -68,8 +68,8 @@ export function Header() {
               ))}
             </nav>
             <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp" className="hidden md:inline-flex">
-              <Button size="icon" variant="ghost" className={cn(scrolled ? 'text-green-600 hover:bg-green-100' : 'text-white hover:bg-white/10')}>
-                <MessageSquare className="h-6 w-6" />
+              <Button size="sm" className="rounded-full">
+                <MessageSquare className="h-5 w-5" />
               </Button>
             </a>
           </div>
@@ -79,7 +79,7 @@ export function Header() {
               size="icon"
               variant="ghost"
               onClick={() => setMenuOpen(!menuOpen)}
-              className={cn(!scrolled && "text-white hover:bg-white/10 hover:text-white")}
+              className={cn("h-10 w-10", !scrolled && "text-white hover:bg-white/10 hover:text-white")}
               aria-expanded={menuOpen}
               aria-controls="mobile-menu"
             >
