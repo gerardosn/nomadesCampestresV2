@@ -47,7 +47,7 @@ export function Facilities() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
-              className="flex flex-col items-center text-center p-4 rounded-lg hover:bg-accent transition-colors"
+              className="flex flex-col items-center text-center p-4 rounded-lg hover:bg-stone-200 transition-colors"
             >
               <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                 <facility.icon className="w-7 h-7 text-primary" />
