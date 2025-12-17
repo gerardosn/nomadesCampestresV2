@@ -60,7 +60,7 @@ export function Header() {
                   onClick={() => handleNavClick(item.href)}
                   className={cn(
                     "font-semibold",
-                    scrolled ? "text-foreground hover:bg-muted" : "text-primary-foreground/90 hover:bg-primary-foreground/10 hover:text-primary-foreground"
+                    scrolled ? "text-foreground hover:bg-stone-200 hover:text-foreground" : "text-primary-foreground/90 hover:bg-primary-foreground/10 hover:text-primary-foreground"
                   )}
                 >
                   {item.label}
