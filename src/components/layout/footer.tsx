@@ -1,4 +1,4 @@
-import { MountainSnow, Twitter, Instagram, Facebook } from "lucide-react";
+import { MountainSnow, Twitter, Instagram, Facebook, LockKeyhole } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
@@ -46,8 +46,15 @@ export function Footer({ onFaqClick }: FooterProps) {
             </div>
           </div>
         </div>
-        <div className="border-t border-secondary-foreground/20 mt-8 pt-6 text-center text-sm">
+        <div className="relative border-t border-secondary-foreground/20 mt-8 pt-6 text-center text-sm">
           <p>&copy; {new Date().getFullYear()} Nómades Campestres. Todos los derechos reservados.</p>
+          <div className="absolute bottom-4 right-4">
+            <Link href="/hostel-office" aria-label="Admin Login">
+              <Button variant="ghost" size="icon" className="h-8 w-8 text-secondary-foreground/50 hover:text-secondary-foreground hover:bg-white/10">
+                <LockKeyhole className="h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
