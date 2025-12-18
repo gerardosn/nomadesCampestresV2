@@ -14,16 +14,14 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className="bg-muted/40">
-        <div className="flex min-h-screen w-full">
-          <AdminSidebar />
-          <div className="flex flex-col flex-1">
-            <AdminHeader />
-            <main className="flex-1 p-4 sm:p-6">{children}</main>
-          </div>
+    <div className="bg-muted/40 font-sans">
+      <div className="flex min-h-screen w-full">
+        <AdminSidebar />
+        <div className="flex flex-col flex-1">
+          <AdminHeader />
+          <main className="flex-1 p-4 sm:p-6">{children}</main>
         </div>
-      </body>
-    </html>
+      </div>
+    </div>
   );
 }
