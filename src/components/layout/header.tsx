@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, MessageSquare } from "lucide-react";
+import { Menu, X, MessageSquare, LockKeyhole } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -51,7 +51,7 @@ export function Header() {
               Nómades Campestres
             </span>
           </Link>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
             <nav className="hidden md:flex items-center gap-2" aria-label="Main navigation">
               {navItems.map((item) => (
                 <Button
@@ -68,13 +68,23 @@ export function Header() {
               ))}
             </nav>
             <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp" className="hidden md:inline-flex">
-              <Button size="sm" className="rounded-full">
+               <Button size="sm" className="rounded-full bg-green-500 hover:bg-green-600 text-white">
                 <MessageSquare className="h-5 w-5" />
               </Button>
             </a>
+            <Link href="/hostel-office" aria-label="Admin Login" className="hidden md:inline-flex">
+              <Button size="icon" variant="ghost" className={cn("h-10 w-10", !scrolled && "text-white hover:bg-white/10 hover:text-white")}>
+                <LockKeyhole className="h-5 w-5" />
+              </Button>
+            </Link>
           </div>
           
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-2">
+             <Link href="/hostel-office" aria-label="Admin Login">
+              <Button size="icon" variant="ghost" className={cn("h-10 w-10", !scrolled && "text-white hover:bg-white/10 hover:text-white")}>
+                <LockKeyhole className="h-5 w-5" />
+              </Button>
+            </Link>
             <Button
               size="icon"
               variant="ghost"
