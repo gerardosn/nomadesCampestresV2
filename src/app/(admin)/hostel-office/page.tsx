@@ -15,9 +15,9 @@ export default function HostelOfficePage() {
       icon: <BookMarked className="w-6 h-6 text-primary" />,
     },
     {
-      title: 'Usuarios',
-      description: 'Administrar cuentas de usuarios.',
-      href: '/hostel-office/usuarios',
+      title: 'Huéspedes',
+      description: 'Administrar perfiles de huéspedes.',
+      href: '/hostel-office/huespedes',
       icon: <Users className="w-6 h-6 text-primary" />,
     },
     {

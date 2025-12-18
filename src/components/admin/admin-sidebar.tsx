@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils';
 const navItems = [
   { href: '/hostel-office', label: 'Inicio', icon: Home },
   { href: '/hostel-office/reservas', label: 'Reservas', icon: BookMarked },
-  { href: '/hostel-office/usuarios', label: 'Usuarios', icon: Users },
+  { href: '/hostel-office/huespedes', label: 'Huéspedes', icon: Users },
   { href: '/hostel-office/habitaciones', label: 'Habitaciones', icon: BedDouble },
 ];
 
@@ -31,7 +31,8 @@ export default function AdminSidebar({ isMobile = false }: { isMobile?: boolean 
               href={href}
               className={cn(
                 'flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary hover:bg-muted',
-                pathname === href && 'bg-muted text-primary'
+                pathname.startsWith(href) && href !== '/hostel-office' && 'bg-muted text-primary',
+                pathname === href && href === '/hostel-office' && 'bg-muted text-primary'
               )}
             >
               <Icon className="h-4 w-4" />
