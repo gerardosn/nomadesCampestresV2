@@ -1,7 +1,3 @@
-// This file is now located at /src/app/(public)/page.tsx
-// This redirection is temporary to maintain project structure.
-// All new public-facing pages should be created inside /src/app/(public)/
-
 "use client";
 
 import { useState } from "react";

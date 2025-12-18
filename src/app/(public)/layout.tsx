@@ -1,9 +1,5 @@
-// This file is now located at /src/app/(public)/layout.tsx
-// This redirection is temporary to maintain project structure.
-// All new public-facing pages should be created inside /src/app/(public)/
-
 import type {Metadata} from 'next';
-import './globals.css';
+import '../globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
