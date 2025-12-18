@@ -1,0 +1,52 @@
+[
+    {
+      "id": "user_123",
+      "firstName": "Carlos",
+      "lastName": "Gomez",
+      "email": "carlos.gomez@email.com",
+      "phone": "+54 9 11 1234-5678",
+      "nationality": "Argentino",
+      "dateOfBirth": "1995-03-15",
+      "document": {
+        "type": "DNI",
+        "number": "38.123.456"
+      },
+      "bookingIds": ["res_001"],
+      "notes": "Primera vez en el hostel. Preguntó por tours de trekking.",
+      "createdAt": "2024-07-20T10:25:00Z"
+    },
+    {
+      "id": "user_456",
+      "firstName": "Sophia",
+      "lastName": "Müller",
+      "email": "sophia.m@email.de",
+      "phone": "+49 176 98765432",
+      "nationality": "Alemana",
+      "dateOfBirth": "2001-07-22",
+      "document": {
+        "type": "Pasaporte",
+        "number": "DE12345XYZ"
+      },
+      "bookingIds": ["res_002"],
+      "notes": "Viajera sola. Busca conocer otros viajeros.",
+      "createdAt": "2024-07-21T14:55:00Z"
+    },
+    {
+      "id": "user_789",
+      "firstName": "Ana",
+      "lastName": "Silva",
+      "email": "ana.silva@email.com.br",
+      "phone": "+55 21 98765-4321",
+      "nationality": "Brasileña",
+      "dateOfBirth": "1998-11-10",
+      "document": {
+        "type": "RG",
+        "number": "12.345.678-9"
+      },
+      "bookingIds": ["res_003"],
+      "notes": "Viaja con dos amigas. La reserva está pendiente de pago.",
+      "createdAt": "2024-07-22T09:10:00Z"
+    }
+  ]
+
+  

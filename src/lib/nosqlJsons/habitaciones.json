@@ -1,0 +1,66 @@
+[
+    {
+      "id": "dorm_8_beds_mixed",
+      "name": "Dormitorio Mixto de 8 Camas",
+      "description": "Ideal para viajeros solos que buscan conocer gente. Cada cama tiene su propio enchufe, luz de lectura y locker.",
+      "type": "shared",
+      "capacity": 8,
+      "pricing": {
+        "amount": 4000,
+        "currency": "ARS"
+      },
+      "amenities": ["wifi", "lockers", "power_outlet", "reading_light"],
+      "images": [
+        "/images/rooms/dorm-8-1.jpg",
+        "/images/rooms/dorm-8-2.jpg"
+      ],
+      "beds": [
+        { "bedId": "d8m_b1", "label": "Cama 1" },
+        { "bedId": "d8m_b2", "label": "Cama 2" },
+        { "bedId": "d8m_b3", "label": "Cama 3" },
+        { "bedId": "d8m_b4", "label": "Cama 4" },
+        { "bedId": "d8m_b5", "label": "Cama 5" },
+        { "bedId": "d8m_b6", "label": "Cama 6" },
+        { "bedId": "d8m_b7", "label": "Cama 7" },
+        { "bedId": "d8m_b8", "label": "Cama 8" }
+      ]
+    },
+    {
+      "id": "dorm_4_beds_female",
+      "name": "Dormitorio Femenino de 4 Camas",
+      "description": "Un espacio más tranquilo y exclusivo para mujeres. Baño compartido dentro de la habitación.",
+      "type": "shared",
+      "capacity": 4,
+      "pricing": {
+        "amount": 4500,
+        "currency": "ARS"
+      },
+      "amenities": ["wifi", "lockers", "power_outlet", "ensuite_bathroom"],
+      "images": [
+        "/images/rooms/dorm-4-female-1.jpg"
+      ],
+      "beds": [
+        { "bedId": "d4f_b1", "label": "Cama 1" },
+        { "bedId": "d4f_b2", "label": "Cama 2" },
+        { "bedId": "d4f_b3", "label_3": "Cama 3" },
+        { "bedId": "d4f_b4", "label": "Cama 4" }
+      ]
+    },
+    {
+      "id": "private_double_room",
+      "name": "Habitación Doble Privada",
+      "description": "La opción perfecta para parejas o quienes buscan máxima privacidad. Cuenta con una cama matrimonial y baño privado.",
+      "type": "private",
+      "capacity": 2,
+      "pricing": {
+        "amount": 12500,
+        "currency": "ARS"
+      },
+      "amenities": ["wifi", "ensuite_bathroom", "tv", "desk"],
+      "images": [
+        "/images/rooms/private-double-1.jpg"
+      ],
+      "beds": []
+    }
+  ]
+  
