@@ -42,7 +42,7 @@
       "beds": [
         { "bedId": "d4f_b1", "label": "Cama 1" },
         { "bedId": "d4f_b2", "label": "Cama 2" },
-        { "bedId": "d4f_b3", "label_3": "Cama 3" },
+        { "bedId": "d4f_b3", "label": "Cama 3" },
         { "bedId": "d4f_b4", "label": "Cama 4" }
       ]
     },
