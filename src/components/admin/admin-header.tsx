@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetTrigger, SheetContent } from '@/components/ui/sheet';
+import { Sheet, SheetTrigger, SheetContent, SheetTitle } from '@/components/ui/sheet';
 import { Menu, MountainSnow, CircleUser } from 'lucide-react';
 import AdminSidebar from './admin-sidebar';
 
@@ -25,6 +25,7 @@ export default function AdminHeader() {
                 </Button>
             </SheetTrigger>
             <SheetContent side="left" className="p-0">
+                <SheetTitle className="sr-only">Admin Navigation Menu</SheetTitle>
                 <AdminSidebar isMobile />
             </SheetContent>
           </Sheet>
