@@ -4,8 +4,12 @@ import path from "path";
 import { z } from "zod";
 import { ReservaSchema } from "./reservaSchema";
 
-export async function GET() {
+export async function GET(request: Request) {
   try {
+    // Obtenemos los parámetros de búsqueda de la URL (Query Params)
+    const { searchParams } = new URL(request.url);
+    const id = searchParams.get("id");
+
     // Construimos la ruta absoluta al archivo JSON de manera segura
     const filePath = path.join(process.cwd(), "src/lib/nosqlJsons/reservas.json");
     const fileContents = await fs.readFile(filePath, "utf-8");
@@ -13,6 +17,15 @@ export async function GET() {
 
     // Validamos la integridad de los datos contra nuestro esquema
     const reservas = z.array(ReservaSchema).parse(jsonData);
+
+    // Si existe un ID en la query (?id=...), filtramos y devolvemos ese único recurso
+    if (id) {
+      const reserva = reservas.find((r) => r.id === id);
+      if (!reserva) {
+        return NextResponse.json({ error: "Reserva no encontrada" }, { status: 404 });
+      }
+      return NextResponse.json(reserva);
+    }
 
     return NextResponse.json(reservas);
   } catch (error) {
