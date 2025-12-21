@@ -35,7 +35,7 @@ export default async function HostelOfficePage() {
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="relative w-full h-64 rounded-lg overflow-hidden shadow-lg">
+      <div className="relative w-full h-32 rounded-lg overflow-hidden shadow-lg">
         {welcomeImage && (
           <Image
             src={welcomeImage.imageUrl}
