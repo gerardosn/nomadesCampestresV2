@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Reserva } from "@/app/api/hostel-office/reservas/reservaSchema";
 
@@ -9,6 +11,7 @@ export default function ReservasPage() {
   const [loading, setLoading] = useState(true);
   const [selectedReserva, setSelectedReserva] = useState<Reserva | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     const fetchReservas = async () => {
@@ -43,6 +46,14 @@ export default function ReservasPage() {
       console.error("Error al obtener detalles:", error);
     }
   };
+
+  // Efecto para Deep Linking: Abrir modal si la URL trae un ID (?showId=...)
+  useEffect(() => {
+    const showId = searchParams.get("showId");
+    if (showId) {
+      handleReservaClick(showId);
+    }
+  }, [searchParams]);
 
   return (
     <Card>
@@ -127,7 +138,12 @@ export default function ReservasPage() {
                   </div>
                   <div>
                     <p className="font-medium text-muted-foreground">Usuario</p>
-                    <p>{selectedReserva.userId}</p>
+                    <Link 
+                      href={`/hostel-office/huespedes?showId=${selectedReserva.userId}`}
+                      className="text-primary hover:underline font-medium"
+                    >
+                      {selectedReserva.userId}
+                    </Link>
                   </div>
                   <div>
                     <p className="font-medium text-muted-foreground">Habitación</p>
