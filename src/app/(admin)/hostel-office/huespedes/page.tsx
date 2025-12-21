@@ -45,6 +45,7 @@ export default function HuespedesPage() {
             <table className="w-full caption-bottom text-sm">
               <thead className="[&_tr]:border-b">
                 <tr className="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                  <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">ID</th>
                   <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Nombre</th>
                   <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Nacionalidad</th>
                   <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Documento</th>
@@ -55,6 +56,7 @@ export default function HuespedesPage() {
               <tbody className="[&_tr:last-child]:border-0">
                 {huespedes.map((huesped) => (
                   <tr key={huesped.id} className="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                    <td className="p-4 align-middle font-medium">{huesped.id}</td>
                     <td className="p-4 align-middle font-medium">{huesped.firstName} {huesped.lastName}</td>
                     <td className="p-4 align-middle">{huesped.nationality}</td>
                     <td className="p-4 align-middle">{huesped.document.type} {huesped.document.number}</td>
