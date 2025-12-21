@@ -46,9 +46,9 @@ export default function HostelOfficePage() {
         </div>
       </div>
       
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="flex flex-col md:flex-row gap-6">
         {adminSections.map((section) => (
-          <Link href={section.href} key={section.title}>
+          <Link href={section.href} key={section.title} className="flex-1">
             <Card className="h-full hover:shadow-lg hover:border-primary/50 transition-all cursor-pointer">
               <CardHeader className="flex flex-row items-center gap-4">
                 <div className="p-3 bg-primary/10 rounded-lg">
