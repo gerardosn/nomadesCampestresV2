@@ -1,11 +1,16 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { BookMarked, Users, BedDouble } from 'lucide-react';
+import { BookMarked, Users, BedDouble, LogIn, LogOut, Moon, Sun } from 'lucide-react';
+import { getDailyMovements } from './actions';
+import { Badge } from '@/components/ui/badge';
 
-export default function HostelOfficePage() {
+
+export default async function HostelOfficePage() {
   const welcomeImage = PlaceHolderImages.find(p => p.id === 'admin-welcome');
+  const { checkIns, checkOuts } = await getDailyMovements();
+
 
   const adminSections = [
     {
@@ -63,6 +68,81 @@ export default function HostelOfficePage() {
           </Link>
         ))}
       </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <LogIn className="text-green-600" />
+              Check-ins para Hoy
+            </CardTitle>
+            <CardDescription>
+              Huéspedes que llegan hoy.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            {checkIns.length > 0 ? (
+              <ul className="space-y-3">
+                {checkIns.map(reserva => (
+                  <li key={reserva.id} className="flex justify-between items-center bg-muted/50 p-3 rounded-lg">
+                    <div className="font-medium">
+                      <Link href={`/hostel-office/huespedes?showId=${reserva.userId}`} className="hover:underline text-primary">
+                        ID Huésped: {reserva.userId}
+                      </Link>
+                      <p className="text-sm text-muted-foreground">Habitación: {reserva.roomId}</p>
+                    </div>
+                    <div className="text-right">
+                       <Badge variant="outline" className="flex items-center gap-1.5">
+                         <Moon className="h-3 w-3"/>
+                         {reserva.nights} noches
+                       </Badge>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="text-muted-foreground text-center py-4">No hay check-ins programados para hoy.</p>
+            )}
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <LogOut className="text-red-600" />
+              Check-outs para Hoy
+            </CardTitle>
+            <CardDescription>
+              Huéspedes que se retiran hoy.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            {checkOuts.length > 0 ? (
+              <ul className="space-y-3">
+                {checkOuts.map(reserva => (
+                  <li key={reserva.id} className="flex justify-between items-center bg-muted/50 p-3 rounded-lg">
+                     <div className="font-medium">
+                      <Link href={`/hostel-office/huespedes?showId=${reserva.userId}`} className="hover:underline text-primary">
+                        ID Huésped: {reserva.userId}
+                      </Link>
+                      <p className="text-sm text-muted-foreground">Habitación: {reserva.roomId}</p>
+                    </div>
+                    <div className="text-right">
+                       <Badge variant="outline" className="flex items-center gap-1.5">
+                         <Sun className="h-3 w-3"/>
+                         {reserva.checkInDate}
+                       </Badge>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="text-muted-foreground text-center py-4">No hay check-outs programados para hoy.</p>
+            )}
+          </CardContent>
+        </Card>
+      </div>
+
     </div>
   );
 }

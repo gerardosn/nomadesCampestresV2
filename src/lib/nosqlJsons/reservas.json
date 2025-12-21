@@ -3,43 +3,43 @@
       "id": "res_001",
       "roomId": "private_double_1",
       "userId": "user_123",
-      "checkInDate": "2025-10-10",
-      "checkOutDate": "2025-10-15",
+      "checkInDate": "2025-12-21",
+      "checkOutDate": "2025-12-26",
       "nights": 5,
       "guests": 2,
       "totalPrice": 25000,
       "currency": "ARS",
       "status": "confirmed",
       "createdAt": "2024-07-20T10:30:00Z",
-      "updatedAt": "2024-07-20T10:30:00Z"
+      "updatedAt": "2025-12-21T10:00:00Z"
     },
     {
       "id": "res_002",
       "roomId": "dorm_8_beds",
       "userId": "user_456",
-      "checkInDate": "2025-10-12",
-      "checkOutDate": "2025-10-14",
+      "checkInDate": "2025-12-28",
+      "checkOutDate": "2025-12-30",
       "nights": 2,
       "guests": 1,
       "totalPrice": 8000,
       "currency": "ARS",
       "status": "confirmed",
       "createdAt": "2024-07-21T15:00:00Z",
-      "updatedAt": "2024-07-21T15:00:00Z"
+      "updatedAt": "2025-12-21T10:00:00Z"
     },
     {
       "id": "res_003",
       "roomId": "dorm_4_beds_female",
       "userId": "user_789",
-      "checkInDate": "2025-11-01",
-      "checkOutDate": "2025-11-08",
+      "checkInDate": "2026-01-05",
+      "checkOutDate": "2026-01-12",
       "nights": 7,
       "guests": 3,
       "totalPrice": 29400,
       "currency": "ARS",
       "status": "pending",
       "createdAt": "2024-07-22T09:15:00Z",
-      "updatedAt": "2024-07-22T09:15:00Z"
+      "updatedAt": "2025-12-21T10:00:00Z"
     }
   ]
 
