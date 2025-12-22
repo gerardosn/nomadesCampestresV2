@@ -1,11 +1,21 @@
 "use client";
 
 import { useState, forwardRef, useRef, useEffect } from "react";
-import { Card } from "@/components/ui/card";
+import {
+  Card
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Calendar, Minus, Plus, Search, Users, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Progress } from "@/components/ui/progress";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "./ui/dialog";
 
 interface SearchWidgetProps {
   onSearch?: (date: string, nights: number, guests: number) => void;
@@ -23,6 +33,9 @@ export const AvailabilitySearch = forwardRef<HTMLDivElement, SearchWidgetProps>(
     const [date, setDate] = useState("");
     const [nights, setNights] = useState(1);
     const [guests, setGuests] = useState(1);
+    const [isChecking, setIsChecking] = useState(false);
+    const [availabilityResult, setAvailabilityResult] = useState<boolean | null>(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const [isExpanded, setIsExpanded] = useState(false);
     const searchRef = useRef<HTMLDivElement>(null);
 
@@ -56,10 +69,60 @@ export const AvailabilitySearch = forwardRef<HTMLDivElement, SearchWidgetProps>(
       setDate(formatDate(offset));
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
       e.preventDefault();
-      if (date && onSearch) {
-        onSearch(date, nights, guests);
+      if (!date) return;
+
+      setIsChecking(true);
+      setAvailabilityResult(null);
+      onSearch?.(date, nights, guests);
+
+      try {
+        // 1. Calcular fecha de salida
+        const checkInDate = new Date(date);
+        const checkOutDate = new Date(checkInDate);
+        checkOutDate.setDate(checkOutDate.getDate() + nights);
+        const checkOutDateString = checkOutDate.toISOString().split("T")[0];
+
+        // 2. Obtener total de camas disponibles
+        const habsResponse = await fetch('/api/hostel-office/habitaciones');
+        if (!habsResponse.ok) throw new Error('Error al obtener datos de habitaciones.');
+        const habsData = await habsResponse.json();
+        const totalBedsInService = habsData.summary.total_beds_available;
+
+        // 3. Obtener reservas que se solapan
+        const reservasResponse = await fetch(`/api/hostel-office/reservas?checkIn=${date}&checkOut=${checkOutDateString}`);
+        if (!reservasResponse.ok) throw new Error('Error al obtener datos de reservas.');
+        const overlappingReservations = await reservasResponse.json();
+
+        // 4. Calcular la ocupación máxima en el período solicitado
+        let maxOccupiedBeds = 0;
+        for (let i = 0; i < nights; i++) {
+          const currentDate = new Date(checkInDate);
+          currentDate.setDate(currentDate.getDate() + i);
+          currentDate.setHours(0, 0, 0, 0);
+
+          let dailyOccupiedBeds = 0;
+          for (const reserva of overlappingReservations) {
+            const reservaCheckIn = new Date(reserva.checkInDate);
+            const reservaCheckOut = new Date(reserva.checkOutDate);
+            if (currentDate >= reservaCheckIn && currentDate < reservaCheckOut) {
+              dailyOccupiedBeds += reserva.guests;
+            }
+          }
+          if (dailyOccupiedBeds > maxOccupiedBeds) {
+            maxOccupiedBeds = dailyOccupiedBeds;
+          }
+        }
+
+        // 5. Determinar si hay al menos una cama disponible
+        setAvailabilityResult(totalBedsInService > maxOccupiedBeds);
+      } catch (error) {
+        console.error("Error en la búsqueda de disponibilidad:", error);
+        setAvailabilityResult(false); // Asumir no disponible en caso de error
+      } finally {
+        setIsChecking(false);
+        setIsModalOpen(true);
       }
     };
 
@@ -155,8 +218,8 @@ export const AvailabilitySearch = forwardRef<HTMLDivElement, SearchWidgetProps>(
                   </select>
                 </div>
 
-                <Button size="lg" className="w-full font-semibold text-base col-span-1 md:col-span-1" disabled={isLoading}>
-                  {isLoading ? (
+                <Button size="lg" className="w-full font-semibold text-base col-span-1 md:col-span-1" disabled={isLoading || isChecking}>
+                  {isLoading || isChecking ? (
                     <>
                       <Loader2 className="mr-2 h-5 w-5 animate-spin" />
                       Buscando...
@@ -171,6 +234,23 @@ export const AvailabilitySearch = forwardRef<HTMLDivElement, SearchWidgetProps>(
               </div>
             </form>
           </Card>
+          <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Resultado de la Búsqueda</DialogTitle>
+                <DialogDescription>
+                  {availabilityResult === null
+                    ? "Verificando disponibilidad..."
+                    : availabilityResult
+                    ? "¡Buenas noticias! Tenemos al menos una cama disponible para las fechas seleccionadas."
+                    : "Lo sentimos, no hay disponibilidad para las fechas seleccionadas. Por favor, intenta con otras fechas."}
+                </DialogDescription>
+              </DialogHeader>
+              <DialogFooter>
+                <Button onClick={() => setIsModalOpen(false)}>Cerrar</Button>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
         </div>
       </section>
     );

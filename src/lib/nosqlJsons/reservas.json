@@ -1,7 +1,7 @@
 [
     {
       "id": "res_001",
-      "roomId": "private_double_1",
+      "roomId": "private_double_room",
       "userId": "user_123",
       "checkInDate": "2025-12-21",
       "checkOutDate": "2025-12-26",
@@ -15,7 +15,7 @@
     },
     {
       "id": "res_002",
-      "roomId": "dorm_8_beds",
+      "roomId": "dorm_8_beds_mixed",
       "userId": "user_456",
       "checkInDate": "2025-12-28",
       "checkOutDate": "2025-12-30",
@@ -43,5 +43,6 @@
     }
   ]
 
+  
   
   

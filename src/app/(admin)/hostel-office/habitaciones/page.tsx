@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Card, CardHeader, CardTitle, CardContent, CardDescription, CardFooter } from "@/components/ui/card";
-import { HabitacionSchema } from "@/app/api/hostel-office/habitaciones/habitacionSchema";
+import { HabitacionSchema, HabitacionesArraySchema } from "@/app/api/hostel-office/habitaciones/habitacionSchema";
 import { z } from "zod";
 import { Badge } from "@/components/ui/badge";
 import { BedDouble, Users } from "lucide-react";
@@ -24,7 +24,13 @@ export default function HabitacionesPage() {
           throw new Error("No se pudieron cargar las habitaciones.");
         }
         const data = await response.json();
-        setHabitaciones(data);
+
+        // Validamos la estructura de los datos recibidos por seguridad
+        const result = HabitacionesArraySchema.safeParse(data);
+        if (!result.success) throw new Error("Formato de datos inválido recibido del servidor.");
+        
+        // Asignamos solo el array de habitaciones ('rooms') al estado
+        setHabitaciones(result.data.rooms);
       } catch (err) {
         setError(err instanceof Error ? err.message : "Un error desconocido ocurrió.");
       } finally {

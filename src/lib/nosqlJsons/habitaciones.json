@@ -1,4 +1,18 @@
-[
+{
+  "summary": {
+    "total_beds_available": 12,
+    "beds_out_service": [
+      {
+        "roomId": "dorm_8_beds_mixed",
+        "bedId": "d8m_b8"
+      },
+      {
+        "roomId": "dorm_4_beds_female",
+        "bedId": "d4f_b1"
+      }
+    ]
+  },
+  "rooms": [
     {
       "id": "dorm_8_beds_mixed",
       "name": "Dormitorio Mixto de 8 Camas",
@@ -22,7 +36,7 @@
         { "bedId": "d8m_b5", "label": "Cama 5" },
         { "bedId": "d8m_b6", "label": "Cama 6" },
         { "bedId": "d8m_b7", "label": "Cama 7" },
-        { "bedId": "d8m_b8", "label": "Cama 8" }
+        { "bedId": "d8m_b8", "label": "Cama 8", "status": "O/S" }
       ]
     },
     {
@@ -40,7 +54,7 @@
         "/images/rooms/dorm-4-female-1.jpg"
       ],
       "beds": [
-        { "bedId": "d4f_b1", "label": "Cama 1" },
+        { "bedId": "d4f_b1", "label": "Cama 1", "status": "O/S" },
         { "bedId": "d4f_b2", "label": "Cama 2" },
         { "bedId": "d4f_b3", "label": "Cama 3" },
         { "bedId": "d4f_b4", "label": "Cama 4" }
@@ -63,4 +77,6 @@
       "beds": []
     }
   ]
-  
+}
+
+
